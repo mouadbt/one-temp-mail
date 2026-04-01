@@ -1,0 +1,1 @@
+export { ReactComponent as RightArrow } from './rightArrow.svg';

@@ -1,7 +1,7 @@
 
 # One Temp Mail
 
-[![One Temp Mail Demo](https://mouadbt.github.io/one-temp-mail/screenshot.png)](https://mouadbt.github.io/one-temp-mail/ "Click to visit live demo")
+[![One Temp Mail Demo](./screenshots/screenshot.png)](https://mouadbt.github.io/one-temp-mail/ "Click to visit live demo")
 
 A free, privacy-focused temporary email service built with React. Generate disposable emails, protect your inbox from spam, and enjoy a seamless user experience.
 
