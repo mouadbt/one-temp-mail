@@ -6,6 +6,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import SecondaryBtn from "../elements/SecondaryBtn";
 
 const Faq = () => {
   const faqs = [
@@ -65,14 +66,7 @@ const Faq = () => {
             works in seconds. Performance ranges: 24 hours, 7 days, 28 days, 3
             months. Last update: 5 hours ago.
           </p>
-          <Button className="w-full sm:w-fit justify-center active:translate-y-[2px] py-1 group relative flex items-center overflow-hidden px-12 whitespace-nowrap group gap-1 sm:justify-start rounded-3xl bg-primary text-sm transition-colors duration-300 hover:bg-foreground active:bg-foreground/80  hover:text-black shadow-sm font-medium h-9">
-            <span className="ease absolute right-0 flex h-9 w-10 translate-x-full transform items-center justify-start duration-300 group-hover:translate-x-0 group-active:-rotate-45 group-active:-translate-y-2 group-active:-translate-x-1">
-              <RightArrow width={16} height={16} className="text-primary" />
-            </span>
-            <span className="relative transform transition-transform duration-300 -translate-x-2 group-hover:-translate-x-3 ">
-              Generate Email now
-            </span>
-          </Button>
+          <SecondaryBtn content='Generate Email now' icon={<RightArrow/>}/>
         </div>
 
         <div className="w-full">

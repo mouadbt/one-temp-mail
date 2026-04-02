@@ -1,3 +1,7 @@
+import CreateEmailBlock from "../blocks/CreateEmailBlock";
+import DomainsForm from "../blocks/DomainsForm";
+import NameForm from "../blocks/NameForm";
+
 const Hero = () => {
   return (
     <section className="w-full relative pt-40 space-y-6">
@@ -11,6 +15,9 @@ const Hero = () => {
         create, manage, and monitor your temp emails using our intuitive
         dashboard.
       </span>
+      <CreateEmailBlock />
+      {/* <NameForm /> */}
+      {/* <DomainsForm/> */}
     </section>
   );
 };
