@@ -128,8 +128,17 @@
   html {
     @apply font-sans;
   }
+
+  ::selection {
+    @apply bg-primary text-foreground
+  }
 }
 
 .bg {
   background: radial-gradient(45.6% 68.2% at 50% 0%, var(--primary) 10%, rgba(3, 6, 13, 0) 100%);
+}
+
+.bgshadow {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 1000px 0 #6200ff66;
+  background-color: #090A0F;
 }

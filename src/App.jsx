@@ -1,3 +1,4 @@
+import Inbox from "./components/layout/Inbox.jsx";
 import "./App.css";
 import Faq from "./components/layout/Faq";
 import Footer from "./components/layout/Footer";
@@ -9,6 +10,7 @@ function App() {
     <main>
       <Header />
       <Hero />
+      <Inbox />
       <Faq />
       <Footer />
     </main>

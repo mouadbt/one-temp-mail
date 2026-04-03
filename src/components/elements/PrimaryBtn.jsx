@@ -1,17 +1,20 @@
+import React from "react";
+import { cn } from "@/lib/utils";
+
 const PrimaryBtn = ({ content, icon, variant = "border" }) => {
   const isMain = variant === "main";
 
+  const btnClassName =
+    "w-[80%] sm:w-fit justify-center whitespace-nowrap group flex p-4 pl-3 gap-2 items-center sm:justify-start rounded-3xl text-sm shadow-sm font-medium h-9 transition-all duration-300 hover:bg-foreground focus:bg-foreground hover:text-background focus:text-background hover:pl-1 focus:pl-1";
+
   const buttonClasses = isMain
-    ? "w-[80%] sm:w-fit justify-center active:translate-y-[2px] whitespace-nowrap group flex pl-2 gap-2 items-center sm:justify-start rounded-3xl bg-primary py-3 px-4 text-sm transition-all duration-300 hover:bg-foreground active:bg-foreground/80 hover:text-background shadow-sm font-medium h-10"
-    : "w-[80%] sm:w-fit justify-center active:translate-y-[2px] whitespace-nowrap group flex pl-2 gap-2 items-center sm:justify-start rounded-3xl border border-primary py-3 px-4 text-sm transition-all duration-300 hover:bg-foreground/80 active:bg-foreground/80 hover:border-transparent hover:text-background shadow-sm font-medium h-10";
+    ? "bg-primary"
+    : "border border-primary hover:border-transparent";
 
-  const iconContainerClasses = isMain
-    ? "aspect-square p-1 bg-foreground rounded-full text-sm group-active:bg-foreground/80 transition-colors duration-300"
-    : "aspect-square p-1 bg-foreground rounded-full group-hover:bg-background group-focus:bg-background transition-colors duration-300";
-
+  const iconContainerClassesName = "aspect-square p-1 rounded-full duration-300   focus:border-foreground hover:border-foreground bg-foreground group-hover:bg-background group-focus:bg-background transition-colors flex items-center";
   return (
-    <button className={buttonClasses}>
-      <span className={iconContainerClasses}>{icon}</span>
+    <button className={cn(buttonClasses,btnClassName)}>
+      <span className={iconContainerClassesName}>{icon}</span>
       <span>{content}</span>
     </button>
   );

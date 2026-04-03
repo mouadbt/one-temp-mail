@@ -10,7 +10,9 @@ const CreateEmailBlock = () => {
         content="Random Email"
         variant="main"
         icon={
-          <MailOpen className="text-background text-[0px] w-0 h-0 -translate-y-px group-hover:w-5 group-hover:h-5 group-focus:w-5 group-focus:h-5 group-active:scale-75 group-hover:text-lg group-hover:translate-x-0 group-focus:text-lg group-focus:translate-x-0 transition-all duration-300" />
+          <MailOpen
+            className=" w-0 h-0 -translate-y-px group-hover:w-4.5 group-hover:h-4.5 group-focus:w-4.5 group-focus:h-4.5 group-active:scale-75  group-hover:translate-x-0 group-focus:translate-x-0 transition-all duration-300 text-foreground"
+          />
         }
       />
       <span>or</span>
