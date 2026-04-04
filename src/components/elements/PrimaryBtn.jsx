@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-const PrimaryBtn = ({ content, icon, variant = "border" }) => {
+const PrimaryBtn = ({ content, icon, variant = "border", onClickHandler }) => {
   const isMain = variant === "main";
 
   const btnClassName =
@@ -11,9 +11,13 @@ const PrimaryBtn = ({ content, icon, variant = "border" }) => {
     ? "bg-primary"
     : "border border-primary hover:border-transparent";
 
-  const iconContainerClassesName = "aspect-square p-1 rounded-full duration-300   focus:border-foreground hover:border-foreground bg-foreground group-hover:bg-background group-focus:bg-background transition-colors flex items-center";
+  const iconContainerClassesName =
+    "aspect-square p-1 rounded-full duration-300   focus:border-foreground hover:border-foreground bg-foreground group-hover:bg-background group-focus:bg-background transition-colors flex items-center";
   return (
-    <button className={cn(buttonClasses,btnClassName)}>
+    <button
+      className={cn(buttonClasses, btnClassName)}
+      onClick={onClickHandler}
+    >
       <span className={iconContainerClassesName}>{icon}</span>
       <span>{content}</span>
     </button>

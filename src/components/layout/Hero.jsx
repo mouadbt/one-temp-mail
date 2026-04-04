@@ -1,8 +1,11 @@
+import useEmailContext from "@/hooks/useEmailContext";
 import CreateEmailBlock from "../blocks/CreateEmailBlock";
 import DomainsForm from "../blocks/DomainsForm";
 import NameForm from "../blocks/NameForm";
 
 const Hero = () => {
+  const { state } = useEmailContext();
+  const { isNameFormVisible, isDomainsFormVisible } = state;
   return (
     <section className="w-full relative pt-48 space-y-6">
       <div className="bg z-0 rounded-full h-[60vh] aspect-[2] w-full -top-[50%] absolute blur-[100px]"></div>
@@ -15,9 +18,13 @@ const Hero = () => {
         create, manage, and monitor your temp emails using our intuitive
         dashboard.
       </span>
-      <CreateEmailBlock />
-      {/* <NameForm /> */}
-      {/* <DomainsForm/> */}
+      {isNameFormVisible ? (
+        <NameForm />
+      ) : isDomainsFormVisible ? (
+        <DomainsForm />
+      ) : (
+        <CreateEmailBlock />
+      )}
     </section>
   );
 };
