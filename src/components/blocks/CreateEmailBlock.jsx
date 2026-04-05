@@ -5,10 +5,11 @@ import PrimaryBtn from "../elements/PrimaryBtn";
 import useEmailContext from "@/hooks/useEmailContext";
 
 const CreateEmailBlock = () => {
-  const { showNameForm } = useEmailContext();
+  const { triggerVerification } = useEmailContext();
   return (
     <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full justify-center items-center z-50">
       <PrimaryBtn
+        onClickHandler={() => triggerVerification("random")}
         content="Random Email"
         variant="main"
         icon={
@@ -17,7 +18,7 @@ const CreateEmailBlock = () => {
       />
       <span>or</span>
       <PrimaryBtn
-        onClickHandler={() => showNameForm(true)}
+        onClickHandler={() => triggerVerification("custom")}
         content="Choose a name and domain"
         icon={
           <RightArrow

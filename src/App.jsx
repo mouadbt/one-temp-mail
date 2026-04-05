@@ -14,7 +14,7 @@ function App() {
       <Inbox />
       <Faq />
       <Footer />
-      {/* <VerificationDrawer/> */}
+      <VerificationDrawer/>
     </main>
   );
 }
