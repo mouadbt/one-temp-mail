@@ -36,7 +36,6 @@ export const emailReducer = (state, action) => {
                 ...state,
                 isNameFormVisible: isFormVisible,
                 isDomainsFormVisible: action.payload,
-
             };
         };
 

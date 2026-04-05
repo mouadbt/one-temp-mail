@@ -5,6 +5,7 @@ import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import Hero from "./components/layout/Hero";
 import VerificationDrawer from "./components/blocks/VerificationDrawer.jsx";
+import { Toaster } from "sonner";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Faq />
       <Footer />
       <VerificationDrawer/>
+      <Toaster richColors/>
     </main>
   );
 }

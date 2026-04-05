@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -8,8 +8,27 @@ import {
 } from "../ui/select";
 import SecondaryBtn from "../elements/SecondaryBtn";
 import { RightArrow } from "@/assets/icons";
+import { getDomains } from "@/lib/api";
+import { toast } from "sonner";
 
 const DomainsForm = () => {
+  const [domains, setDomains] = useState([]);
+
+  // Fetch domains from api
+  const fetchDomains = async () => {
+    try {
+      const domains = await getDomains();
+      setDomains(domains);
+    } catch (err) {
+      toast.error("Failed to fetch domains");
+    }
+  };
+
+  // Fetch domains on mount
+  useEffect(() => {
+    fetchDomains();
+  }, []);
+
   return (
     <form
       action="#"
@@ -20,12 +39,18 @@ const DomainsForm = () => {
           <SelectValue placeholder="Choose Email" className="text-center" />
         </SelectTrigger>
         <SelectContent className="bg-background -ml-1 rounded-2xl [&_.option]:rounded-full [&_.option]:hover:bg-primary [&_.option]:focus:bg-primary p-1">
-          <SelectItem key={1} value="test" className="option">
-            test
-          </SelectItem>
-          <SelectItem key={2} value="test2" className="option">
-            test 2
-          </SelectItem>
+          {domains &&
+            domains.length > 0 &&
+            domains.map((domain) => (
+              <SelectItem
+                key={domain.domain}
+                value={domain.domain}
+                className="option"
+              >
+                {/* {`${username}@${domain.domain}`} */}
+                {domain.domain}
+              </SelectItem>
+            ))}
         </SelectContent>
       </Select>
 
