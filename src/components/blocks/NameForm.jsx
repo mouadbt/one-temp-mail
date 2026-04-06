@@ -12,17 +12,18 @@ import { RightArrow } from "@/assets/icons";
 import useEmailContext from "@/hooks/useEmailContext";
 
 const NameForm = () => {
-  const [name, setName] = useState(null);
+  const [name, setName] = useState("");
   const { setUserName } = useEmailContext();
   return (
     <>
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          if (!name?.trim()) return;
           setUserName(name);
         }}
         action="#"
-        className="w-full sm:w-1/2 lg:w-1/3 mx-auto flex gap-4 flex-wrap items-stretch sm:flex-nowrap"
+        className="max-w-[80%] w-full sm:w-1/2 lg:w-1/3 mx-auto flex gap-4 flex-wrap items-stretch sm:flex-nowrap"
       >
         <Input
           className="h-9 rounded-full border-primary"
@@ -47,7 +48,7 @@ const NameForm = () => {
           </Tooltip>
         </TooltipProvider>
 
-        <SecondaryBtn type="submit" content="Next" icon={<RightArrow />} />
+        <SecondaryBtn type="submit" content="Next" icon={<RightArrow />} disabled={!name?.trim()} />
       </form>
       <p className="text-xs text-center max-w-sm mx-auto mt-2 -mb-6 text-foreground/60 z-50">
         Choose a unique username for your temporary email. Avoid common names,

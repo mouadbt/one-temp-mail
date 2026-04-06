@@ -7,7 +7,6 @@ const EmptyInbox = () => {
   const messagesReady = false;
   const { state } = useEmailContext();
   const { isNameFormVisible } = state;
-  // console.log({state,showNameForm,isNameFormVisible})
   return (
     <div className="flex flex-col h-full w-full items-center justify-center">
       <div className="relative flex justify-center items-center min-h-[150px]">

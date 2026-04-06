@@ -1,6 +1,6 @@
 import { emailReducer, initialEmailState } from '@/store/reducers/emailReducer'
 import { closeDrawer, openDrawer, setUserName, setVerificationPath, showDomainsForm, showNameForm, verificationSuccess } from '@/store/reducers/emailReducerActions';
-import React, { useEffect, useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 
 const useEmailReducer = () => {
     const [state, dispatch] = useReducer(emailReducer, initialEmailState);
@@ -32,6 +32,8 @@ const useEmailReducer = () => {
         triggerVerification: (path) => {
             dispatch(setVerificationPath(path));
             dispatch(openDrawer());
+            // temp
+            dispatch(verificationSuccess());
         },
         handleVerificationSuccess: () => dispatch(verificationSuccess()),
     }
