@@ -1,18 +1,20 @@
-import { CLOSE_DRAWER, OPEN_DRAWER, SET_USERNAME, SET_VERIFICATION_PATH, SHOW_DOMAINS_FORM, SHOW_NAME_FORM, VERIFICATION_SUCCESS } from "./emailReducerActions";
+import { SET_DOMAINS_FORM_VISIBLE, SET_NAME_FORM_VISIBLE, SET_DRAWER_VISIBLE, SET_CUSTOM_EMAIL, SET_USERNAME, SET_VERIFICATION_PATH, VERIFICATION_SUCCESS } from "./emailReducerActions";
 
 export const initialEmailState = {
     isNameFormVisible: false,
     isDomainsFormVisible: false,
+    isCreatedEmailCompVisible: false,
 
     isDrawerOpen: false,
     verificationPath: null, // "random" | "custom" | null
 
     username: null,
+    customEmail: null,
 }
 export const emailReducer = (state, action) => {
     switch (action.type) {
-        case SHOW_NAME_FORM: {
-            /* When we render the name form: 
+        case SET_NAME_FORM_VISIBLE: {
+            /* When we render the name form:
                 -> clear the name value to let user enter a username
             */
             let name = state.username;
@@ -25,8 +27,8 @@ export const emailReducer = (state, action) => {
             };
         };
 
-        case SHOW_DOMAINS_FORM: {
-            /* When we render the domains form: 
+        case SET_DOMAINS_FORM_VISIBLE: {
+            /* When we render the domains form:
                 -> clear the name form
             */
             let isFormVisible = state.isNameFormVisible;
@@ -39,19 +41,26 @@ export const emailReducer = (state, action) => {
             };
         };
 
-        case OPEN_DRAWER:
-            return { ...state, isDrawerOpen: true };
-
-        case CLOSE_DRAWER:
-            return { ...state, isDrawerOpen: false };
+        case SET_DRAWER_VISIBLE:
+            return { ...state, isDrawerOpen: action.payload };
 
         case SET_VERIFICATION_PATH:
             return { ...state, verificationPath: action.payload };
 
         case VERIFICATION_SUCCESS: {
+            /* 
+                If user choosed create random email: 
+                    -> hide verification drawr
+                    -> directly go to email creation phase
+            */
             if (state.verificationPath === "random") {
                 return { ...state, isDrawerOpen: false, };
             };
+            /* 
+                If user choosed create custom email: 
+                    -> hide verification drawr
+                    -> go to create user name & chosoe domains form
+            */
             if (state.verificationPath === "custom") {
                 return {
                     ...state,
@@ -63,19 +72,44 @@ export const emailReducer = (state, action) => {
         };
 
         case SET_USERNAME: {
-            /* If there is no value: 
-                -> don't proceed
+            /* 
+                If there is no value: 
+                    -> don't proceed
             */
             if (!action.payload) return state;
 
             /*
-                setName and render the domains form & hide name form
+                Set name and:
+                    -> render the domains form
+                    -> hide the name form
             */
             return {
                 ...state,
                 username: action.payload,
                 isNameFormVisible: false,
                 isDomainsFormVisible: true
+            };
+        };
+
+        case SET_CUSTOM_EMAIL: {
+            /* 
+                If there is no value: 
+                    -> don't proceed
+            */
+            if (!action.payload) return state;
+
+            /*
+                Set custom email and:
+                    -> render email component 
+                    -> hide the name form 
+                    -> the domains form
+            */
+            return {
+                ...state,
+                customEmail: action.payload,
+                isNameFormVisible: false,
+                isDomainsFormVisible: false,
+                isCreatedEmailCompVisible: true
             };
         };
 

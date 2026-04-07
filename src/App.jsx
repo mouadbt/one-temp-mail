@@ -6,17 +6,25 @@ import Header from "./components/layout/Header";
 import Hero from "./components/layout/Hero";
 import VerificationDrawer from "./components/blocks/VerificationDrawer.jsx";
 import { Toaster } from "sonner";
+import GradientBg from "./components/elements/GradientBg.jsx";
 
 function App() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Header />
+      <GradientBg />
       <Hero />
       <Inbox />
       <Faq />
       <Footer />
-      <VerificationDrawer/>
-      <Toaster richColors/>
+      <VerificationDrawer />
+      <Toaster
+        // theme="dark"
+        // richColors
+        toastOptions={{
+          className: "toast !bg-primary !text-foreground !border-foreground/10",
+        }}
+      />
     </main>
   );
 }

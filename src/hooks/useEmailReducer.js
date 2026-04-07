@@ -1,5 +1,5 @@
 import { emailReducer, initialEmailState } from '@/store/reducers/emailReducer'
-import { closeDrawer, openDrawer, setUserName, setVerificationPath, showDomainsForm, showNameForm, verificationSuccess } from '@/store/reducers/emailReducerActions';
+import { setDrawerVisible, setUserName, setVerificationPath, setDomainsFormVisible, setNameFormVisible, verificationSuccess } from '@/store/reducers/emailReducerActions';
 import { useEffect, useReducer } from 'react'
 
 const useEmailReducer = () => {
@@ -23,15 +23,14 @@ const useEmailReducer = () => {
 
     return {
         state,
-        showNameForm: (isVisibleState) => dispatch(showNameForm(isVisibleState)),
-        showDomainsForm: (isVisibleState) => dispatch(showDomainsForm(isVisibleState)),
+        setNameFormVisible: (isVisible) => dispatch(setNameFormVisible(isVisible)),
+        setDomainsFormVisible: (isVisible) => dispatch(setDomainsFormVisible(isVisible)),
         setUserName: (name) => dispatch(setUserName(name)),
-        openDrawer: () => dispatch(openDrawer()),
-        closeDrawer: () => dispatch(closeDrawer()),
+        setDrawerVisible: (isVisible) => dispatch(setDrawerVisible(isVisible)),
         setVerificationPath: (path) => dispatch(setVerificationPath(path)),
         triggerVerification: (path) => {
             dispatch(setVerificationPath(path));
-            dispatch(openDrawer());
+            dispatch(setDrawerVisible(true));
             // temp
             dispatch(verificationSuccess());
         },

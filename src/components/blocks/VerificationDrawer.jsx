@@ -12,7 +12,7 @@ import useEmailContext from "@/hooks/useEmailContext";
 
 const HCaptcha = lazy(() => import("@hcaptcha/react-hcaptcha"));
 const VerificationDrawer = () => {
-  const { state, handleVerificationSuccess, closeDrawer } = useEmailContext();
+  const { state, handleVerificationSuccess, setDrawerVisible } = useEmailContext();
   const siteKey = import.meta.env.VITE_HCAPTCHA_SITE_KEY;
 
   const onVerify = (token) => {
@@ -22,7 +22,7 @@ const VerificationDrawer = () => {
   };
 
   const handleOnOpenChange = (open) => {
-    if (!open) closeDrawer();
+    setDrawerVisible(open);
   };
 
   return (
@@ -52,7 +52,7 @@ const VerificationDrawer = () => {
           </Suspense>
           <DrawerClose
             className="w-min mx-auto text-foreground/60 border-b border-b-transparent hover:border-b-foreground/60 mt-8"
-            onClick={() => closeDrawer()}
+            onClick={() => setDrawerVisible(false)}
           >
             Cancel
           </DrawerClose>

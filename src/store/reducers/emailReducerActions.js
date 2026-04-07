@@ -1,21 +1,21 @@
-export const SHOW_NAME_FORM = "SHOW_NAME_FORM";
-export const SHOW_DOMAINS_FORM = "SHOW_DOMAINS_FORM";
+export const SET_NAME_FORM_VISIBLE = "SET_NAME_FORM_VISIBLE";
+export const SET_DOMAINS_FORM_VISIBLE = "SET_DOMAINS_FORM_VISIBLE";
 export const SET_USERNAME = "SET_USERNAME";
-export const OPEN_DRAWER = "OPEN_DRAWER";
-export const CLOSE_DRAWER = "CLOSE_DRAWER";
+export const SET_DRAWER_VISIBLE = "SET_DRAWER_VISIBLE";
 export const SET_VERIFICATION_PATH = "SET_VERIFICATION_PATH";  // "random" or "custom"
 export const VERIFICATION_SUCCESS = "VERIFICATION_SUCCESS";
+export const SET_CUSTOM_EMAIL = "SET_CUSTOM_EMAIL";
 
-export const showNameForm = (isVisibleState) => ({ type: SHOW_NAME_FORM, payload: isVisibleState });
+export const setNameFormVisible = (isVisible) => ({ type: SET_NAME_FORM_VISIBLE, payload: isVisible });
 
-export const showDomainsForm = (isVisibleState) => ({ type: SHOW_DOMAINS_FORM, payload: isVisibleState });
+export const setDomainsFormVisible = (isVisible) => ({ type: SET_DOMAINS_FORM_VISIBLE, payload: isVisible });
 
 export const setUserName = (name) => ({ type: SET_USERNAME, payload: name });
 
-export const openDrawer = () => ({ type: OPEN_DRAWER });
-
-export const closeDrawer = () => ({ type: CLOSE_DRAWER });
+export const setDrawerVisible = (isVisible) => ({ type: SET_DRAWER_VISIBLE, payload: isVisible });
 
 export const setVerificationPath = (path) => ({ type: SET_VERIFICATION_PATH, payload: path });
 
 export const verificationSuccess = () => ({ type: VERIFICATION_SUCCESS });
+
+export const setCustomEmail = (email) => ({ type: SET_CUSTOM_EMAIL, payload: email });
