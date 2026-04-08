@@ -1,28 +1,28 @@
-import { emailReducer, initialEmailState } from '@/store/reducers/emailReducer'
-import { setDrawerVisible, setUserName, setVerificationPath, setDomainsFormVisible, setNameFormVisible, verificationSuccess } from '@/store/reducers/emailReducerActions';
-import { useEffect, useReducer } from 'react'
+import { emailReducer, initialEmailState } from '@/store/reducers/emailReducer';
+import { setDrawerVisible, setUserName, setVerificationPath, setDomainsFormVisible, setNameFormVisible, verificationSuccess, setEmailDisplayVisible, setCustomEmail, setDomains } from '@/store/reducers/emailReducerActions';
+import { useEffect, useReducer, useCallback } from 'react';
+import useDomainsQuery from './useDomainsQuery';
 
 const useEmailReducer = () => {
     const [state, dispatch] = useReducer(emailReducer, initialEmailState);
 
-    // After verification succeeds, branch to the correct path
+    // Use React Query for domains — sync into reducer state
+    const { data: domains = [], isLoading: domainsLoading, isError: domainsError } = useDomainsQuery();
+
     useEffect(() => {
-        if (!state.isDrawerOpen && state.verificationPath) {
-
-            if (state.verificationPath === "random") {
-                handleRandomEmailCreation();
-            }
-
-            dispatch({ type: 'SET_VERIFICATION_PATH', payload: null });
+        if (domains.length > 0) {
+            dispatch(setDomains(domains));
         }
-    }, [state.isDrawerOpen, state.verificationPath]);
+    }, [domains]);
 
-    const handleRandomEmailCreation = () => {
-        console.log('start creation of the random email');
-    }
+    const handleEmailCreated = useCallback((data) => {
+        dispatch({ type: 'EMAIL_CREATED', payload: data });
+    }, []);
 
     return {
         state,
+        domainsLoading,
+        domainsError,
         setNameFormVisible: (isVisible) => dispatch(setNameFormVisible(isVisible)),
         setDomainsFormVisible: (isVisible) => dispatch(setDomainsFormVisible(isVisible)),
         setUserName: (name) => dispatch(setUserName(name)),
@@ -31,10 +31,11 @@ const useEmailReducer = () => {
         triggerVerification: (path) => {
             dispatch(setVerificationPath(path));
             dispatch(setDrawerVisible(true));
-            // temp
-            dispatch(verificationSuccess());
         },
         handleVerificationSuccess: () => dispatch(verificationSuccess()),
+        setEmailDisplayVisible: (isVisible) => dispatch(setEmailDisplayVisible(isVisible)),
+        setCustomEmail: (email) => dispatch(setCustomEmail(email)),
+        handleEmailCreated,
     }
 }
 

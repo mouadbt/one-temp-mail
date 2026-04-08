@@ -9,6 +9,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import useEmailContext from "@/hooks/useEmailContext";
+import { toast } from "sonner";
 
 const HCaptcha = lazy(() => import("@hcaptcha/react-hcaptcha"));
 const VerificationDrawer = () => {

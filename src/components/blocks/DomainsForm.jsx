@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Select,
   SelectContent,
@@ -8,35 +8,20 @@ import {
 } from "../ui/select";
 import SecondaryBtn from "../elements/SecondaryBtn";
 import { RightArrow } from "@/assets/icons";
-import { getDomains } from "@/lib/api";
-import { toast } from "sonner";
 import useEmailContext from "@/hooks/useEmailContext";
-import { useQuery } from "@tanstack/react-query";
 
 const DomainsForm = () => {
-  const { state } = useEmailContext();
-  const { username } = state;
+  const { state, setCustomEmail, setEmailDisplayVisible } = useEmailContext();
+  const { username, customEmail, domains } = state;
 
-  const {
-    data: domains = [],
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
-    queryKey: ["domains"],
-    queryFn: getDomains,
-  });
-
-  useEffect(() => {
-    if (isError) {
-      toast.error("Failed to fetch domains");
-      console.error(error);
-    }
-  }, [isError, error]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username && customEmail) setEmailDisplayVisible(true);
+  };
 
   return (
     <>
-      {isLoading && (
+      {(!domains || domains.length === 0) && (
         <div className="flex justify-center items-center py-4">
           <div className="animate-spin h-6 w-6 border-2 border-foreground/30 border-t-foreground rounded-full" />
           <span className="ml-3 text-sm text-foreground/60">
@@ -45,18 +30,13 @@ const DomainsForm = () => {
         </div>
       )}
 
-      {!isLoading && domains.length === 0 && (
-        <p className="text-center text-sm text-foreground/60">
-          Failed to load domains. Please try again later.
-        </p>
-      )}
-
-      {domains.length > 0 && (
+      {domains && domains.length > 0 && (
         <form
           action="#"
+          onSubmit={(e) => handleSubmit(e)}
           className="max-w-[80%] mx-auto *:w-full sm:w-1/2 md:max-w-1/4 flex gap-4 flex-col sm:flex-row items-stretch justify-center"
         >
-          <Select>
+          <Select onValueChange={(value) => setCustomEmail(value)}>
             <SelectTrigger className="h-9! w-full rounded-full border-primary text-center">
               <SelectValue placeholder="Choose Email" className="text-center" />
             </SelectTrigger>
