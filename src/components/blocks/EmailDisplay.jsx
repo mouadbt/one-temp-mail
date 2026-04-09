@@ -87,7 +87,7 @@ const EmailDisplay = () => {
     isCreatingRef.current = false;
     return (
       <div className="z-50 flex flex-col items-center justify-center">
-        <p className="text-red-500 text-base sm:text-xl font-medium mb-2">
+        <p className="text-foreground/60 text-base sm:text-xl font-medium mb-2">
           Failed to create email. Please try again.
         </p>
       </div>

@@ -7,6 +7,7 @@ export const VERIFICATION_SUCCESS = "VERIFICATION_SUCCESS";
 export const SET_CUSTOM_EMAIL = "SET_CUSTOM_EMAIL";
 export const SET_EMAIL_DISPLAY_VISIBLE = "SET_EMAIL_DISPLAY_VISIBLE";
 export const SET_DOMAINS = "SET_DOMAINS";
+export const SET_SELECTED_DOMAIN = "SET_SELECTED_DOMAIN";
 export const EMAIL_CREATED = "EMAIL_CREATED";
 
 
@@ -27,3 +28,5 @@ export const setCustomEmail = (email) => ({ type: SET_CUSTOM_EMAIL, payload: ema
 export const setEmailDisplayVisible = (isVisible) => ({ type: SET_EMAIL_DISPLAY_VISIBLE, payload: { isVisible } });
 
 export const setDomains = (domains) => ({ type: SET_DOMAINS, payload: domains });
+
+export const setSelectedDomain = (domain) => ({ type: SET_SELECTED_DOMAIN, payload: domain });

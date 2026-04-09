@@ -12,8 +12,9 @@ const NameForm = () => {
   const pattern = /^[a-z]{2,}[a-z\d]*$/;
 
   const onChange = (e) => {
-    if (pattern.test(e.target.value)) {
-      setName(e.target.value);
+    const value = e.target.value;
+    if (value === "" || pattern.test(value)) {
+      setName(value);
     }
   };
 
@@ -23,6 +24,7 @@ const NameForm = () => {
       setUserName(name);
     }
   };
+  
   return (
     <>
       <form

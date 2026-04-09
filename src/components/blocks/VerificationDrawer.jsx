@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/drawer";
 import useEmailContext from "@/hooks/useEmailContext";
 import { toast } from "sonner";
+import LoadingState from "../elements/LoadingState";
 
 const HCaptcha = lazy(() => import("@hcaptcha/react-hcaptcha"));
 const VerificationDrawer = () => {
@@ -39,16 +40,7 @@ const VerificationDrawer = () => {
           </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className="items-center justify-center">
-          <Suspense
-            fallback={
-              <div className="flex justify-center items-center py-4">
-                <div className="animate-spin h-6 w-6 border-2 border-foreground/30 border-t-foreground rounded-full" />
-                <span className="ml-3 text-sm text-foreground/60">
-                  Loading captcha...
-                </span>
-              </div>
-            }
-          >
+          <Suspense fallback={<LoadingState message="Loading captcha..." />}>
             <HCaptcha sitekey={siteKey} onVerify={onVerify} theme="dark" />
           </Suspense>
           <DrawerClose

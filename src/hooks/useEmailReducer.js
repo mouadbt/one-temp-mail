@@ -1,5 +1,5 @@
 import { emailReducer, initialEmailState } from '@/store/reducers/emailReducer';
-import { setDrawerVisible, setUserName, setVerificationPath, setDomainsFormVisible, setNameFormVisible, verificationSuccess, setEmailDisplayVisible, setCustomEmail, setDomains } from '@/store/reducers/emailReducerActions';
+import { setDrawerVisible, setUserName, setVerificationPath, setDomainsFormVisible, setNameFormVisible, verificationSuccess, setEmailDisplayVisible, setCustomEmail, setDomains, setSelectedDomain } from '@/store/reducers/emailReducerActions';
 import { useEffect, useReducer, useCallback } from 'react';
 import useDomainsQuery from './useDomainsQuery';
 
@@ -31,10 +31,12 @@ const useEmailReducer = () => {
         triggerVerification: (path) => {
             dispatch(setVerificationPath(path));
             dispatch(setDrawerVisible(true));
+            // dispatch(verificationSuccess())
         },
         handleVerificationSuccess: () => dispatch(verificationSuccess()),
         setEmailDisplayVisible: (isVisible) => dispatch(setEmailDisplayVisible(isVisible)),
         setCustomEmail: (email) => dispatch(setCustomEmail(email)),
+        setSelectedDomain: (domain) => dispatch(setSelectedDomain(domain)),
         handleEmailCreated,
     }
 }

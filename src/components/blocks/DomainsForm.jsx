@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -9,10 +9,26 @@ import {
 import SecondaryBtn from "../elements/SecondaryBtn";
 import { RightArrow } from "@/assets/icons";
 import useEmailContext from "@/hooks/useEmailContext";
+import { toast } from "sonner";
+import LoadingState from "../elements/LoadingState";
+import ErrorState from "../elements/ErrorState";
 
 const DomainsForm = () => {
-  const { state, setCustomEmail, setEmailDisplayVisible } = useEmailContext();
+  const {
+    state,
+    setCustomEmail,
+    setEmailDisplayVisible,
+    domainsLoading,
+    domainsError,
+    setSelectedDomain,
+  } = useEmailContext();
   const { username, customEmail, domains } = state;
+
+  useEffect(() => {
+    if (domainsError) {
+      toast.error("Failed to load email domains. Please try again.");
+    }
+  }, [domainsError]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,13 +37,15 @@ const DomainsForm = () => {
 
   return (
     <>
-      {(!domains || domains.length === 0) && (
-        <div className="flex justify-center items-center py-4">
-          <div className="animate-spin h-6 w-6 border-2 border-foreground/30 border-t-foreground rounded-full" />
-          <span className="ml-3 text-sm text-foreground/60">
-            Fetching temp email domains...
-          </span>
-        </div>
+      {domainsLoading && (
+        <LoadingState message="Fetching temp email domains..." />
+      )}
+
+      {domainsError && (
+        <ErrorState
+          message="Failed to load email domains"
+          onRetry={() => window.location.reload()}
+        />
       )}
 
       {domains && domains.length > 0 && (
@@ -36,7 +54,12 @@ const DomainsForm = () => {
           onSubmit={(e) => handleSubmit(e)}
           className="max-w-[80%] mx-auto *:w-full sm:w-1/2 md:max-w-1/4 flex gap-4 flex-col sm:flex-row items-stretch justify-center"
         >
-          <Select onValueChange={(value) => setCustomEmail(value)}>
+          <Select
+            onValueChange={(value) => {
+              setCustomEmail(value);
+              setSelectedDomain(value);
+            }}
+          >
             <SelectTrigger className="h-9! w-full rounded-full border-primary text-center">
               <SelectValue placeholder="Choose Email" className="text-center" />
             </SelectTrigger>

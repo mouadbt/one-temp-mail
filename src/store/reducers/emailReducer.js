@@ -1,4 +1,4 @@
-import { SET_DOMAINS_FORM_VISIBLE, SET_NAME_FORM_VISIBLE, SET_DRAWER_VISIBLE, SET_CUSTOM_EMAIL, SET_USERNAME, SET_VERIFICATION_PATH, VERIFICATION_SUCCESS, SET_EMAIL_DISPLAY_VISIBLE, SET_DOMAINS, EMAIL_CREATED } from "./emailReducerActions";
+import { SET_DOMAINS_FORM_VISIBLE, SET_NAME_FORM_VISIBLE, SET_DRAWER_VISIBLE, SET_CUSTOM_EMAIL, SET_USERNAME, SET_VERIFICATION_PATH, VERIFICATION_SUCCESS, SET_EMAIL_DISPLAY_VISIBLE, SET_DOMAINS, SET_SELECTED_DOMAIN, EMAIL_CREATED } from "./emailReducerActions";
 
 export const initialEmailState = {
     isNameFormVisible: false,
@@ -11,6 +11,7 @@ export const initialEmailState = {
     username: null,
     customEmail: null,
     domains: [],
+    selectedDomain: null,
     email: null,
     token: null,
     isEmailCreated: false,
@@ -105,6 +106,13 @@ export const emailReducer = (state, action) => {
             return {
                 ...state,
                 domains: action.payload,
+            };
+        };
+
+        case SET_SELECTED_DOMAIN: {
+            return {
+                ...state,
+                selectedDomain: action.payload,
             };
         };
 
