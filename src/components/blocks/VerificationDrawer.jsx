@@ -23,6 +23,15 @@ const VerificationDrawer = () => {
     }
   };
 
+  const onError = (error) => {
+    console.error("hCaptcha error:", error);
+    toast.error("Captcha verification failed. Please try again.");
+  };
+
+  const onExpire = () => {
+    toast.warning("Captcha expired. Please try again.");
+  };
+
   const handleOnOpenChange = (open) => {
     setDrawerVisible(open);
   };
@@ -41,7 +50,13 @@ const VerificationDrawer = () => {
         </DrawerHeader>
         <DrawerFooter className="items-center justify-center">
           <Suspense fallback={<LoadingState message="Loading captcha..." />}>
-            <HCaptcha sitekey={siteKey} onVerify={onVerify} theme="dark" />
+            <HCaptcha
+              sitekey={siteKey}
+              onVerify={onVerify}
+              onError={onError}
+              onExpire={onExpire}
+              theme="dark"
+            />
           </Suspense>
           <DrawerClose
             className="w-min mx-auto text-foreground/60 border-b border-b-transparent hover:border-b-foreground/60 mt-8"
