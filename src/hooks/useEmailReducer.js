@@ -30,8 +30,8 @@ const useEmailReducer = () => {
         setVerificationPath: (path) => dispatch(setVerificationPath(path)),
         triggerVerification: (path) => {
             dispatch(setVerificationPath(path));
-            dispatch(setDrawerVisible(true));
-            // dispatch(verificationSuccess())
+            // dispatch(setDrawerVisible(true));
+            dispatch(verificationSuccess());
         },
         handleVerificationSuccess: () => dispatch(verificationSuccess()),
         setEmailDisplayVisible: (isVisible) => dispatch(setEmailDisplayVisible(isVisible)),
