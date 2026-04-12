@@ -40,6 +40,14 @@ const useEmailCreationMutation = (onSuccessCallback) => {
         },
         onSuccess: (data) => {
             toast.success("Temp email created successfully");
+            
+            // Store email state in localStorage for persistence across refreshes
+            try {
+                localStorage.setItem("tempEmail", JSON.stringify(data));
+            } catch (error) {
+                console.error("Failed to store email in localStorage:", error);
+            }
+            
             if (onSuccessCallback) {
                 onSuccessCallback(data);
             }

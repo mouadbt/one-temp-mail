@@ -3,10 +3,10 @@ import InboxIcon from "@/assets/icons/InboxIcon";
 import LoadingSpinner from "@/assets/icons/LoadingSpinner";
 import useEmailContext from "@/hooks/useEmailContext";
 
-const EmptyInbox = () => {
-  const messagesReady = false;
+const EmptyInbox = ({ messagesReady }) => {
   const { state } = useEmailContext();
-  const { isNameFormVisible } = state;
+  const { isNameFormVisible, isEmailCreated } = state;
+  
   return (
     <div className="flex flex-col h-full w-full items-center justify-center">
       <div className="relative flex justify-center items-center min-h-[150px]">
@@ -21,9 +21,11 @@ const EmptyInbox = () => {
       <h3 className="text-foreground/60 text-lg font-light text-center">
         {messagesReady
           ? "This operation is performed automatically"
-          : isNameFormVisible
-            ? "Enter your username and create your temporary email"
-            : "Generate a random email or enter a username to create a temporary email"}
+          : isEmailCreated
+            ? "Your inbox is ready. Waiting for incoming emails..."
+            : isNameFormVisible
+              ? "Enter your username and create your temporary email"
+              : "Generate a random email or enter a username to create a temporary email"}
       </h3>
     </div>
   );

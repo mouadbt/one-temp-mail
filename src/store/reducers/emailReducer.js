@@ -1,4 +1,30 @@
-import { SET_DOMAINS_FORM_VISIBLE, SET_NAME_FORM_VISIBLE, SET_DRAWER_VISIBLE, SET_CUSTOM_EMAIL, SET_USERNAME, SET_VERIFICATION_PATH, VERIFICATION_SUCCESS, SET_EMAIL_DISPLAY_VISIBLE, SET_DOMAINS, SET_SELECTED_DOMAIN, EMAIL_CREATED } from "./emailReducerActions";
+import { SET_DOMAINS_FORM_VISIBLE, SET_NAME_FORM_VISIBLE, SET_DRAWER_VISIBLE, SET_CUSTOM_EMAIL, SET_USERNAME, SET_VERIFICATION_PATH, VERIFICATION_SUCCESS, SET_EMAIL_DISPLAY_VISIBLE, SET_DOMAINS, SET_SELECTED_DOMAIN, EMAIL_CREATED, RESET_STATE } from "./emailReducerActions";
+
+// Load persisted email state from localStorage with validation
+const loadPersistedState = () => {
+    try {
+        const stored = localStorage.getItem("tempEmail");
+        if (stored) {
+            const { email, token } = JSON.parse(stored);
+            
+            // Validate that both email and token exist and are non-empty strings
+            if (email && token && 
+                typeof email === "string" && typeof token === "string" &&
+                email.trim().length > 0 && token.trim().length > 0) {
+                
+                return { 
+                    email: email.trim(), 
+                    token: token.trim(), 
+                    isEmailCreated: true,
+                    isEmailDisplayVisible: true 
+                };
+            }
+        }
+    } catch (error) {
+        console.error("Failed to load email from localStorage:", error);
+    }
+    return null;
+};
 
 export const initialEmailState = {
     isNameFormVisible: false,
@@ -15,6 +41,7 @@ export const initialEmailState = {
     email: null,
     token: null,
     isEmailCreated: false,
+    ...loadPersistedState(), // Override with stored state if exists
 }
 export const emailReducer = (state, action) => {
     switch (action.type) {
@@ -169,6 +196,17 @@ export const emailReducer = (state, action) => {
                 email: action.payload.email,
                 token: action.payload.token,
                 isEmailCreated: true,
+            };
+        };
+
+        case RESET_STATE: {
+            /*
+                Reset all email-related state to initial values
+                Keep domains since they're managed by React Query
+            */
+            return {
+                ...initialEmailState,
+                domains: state.domains, // Preserve fetched domains
             };
         };
 

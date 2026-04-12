@@ -11,7 +11,7 @@ const Hero = () => {
     state;
   return (
     <section className="w-full pt-32 md:pt-48 space-y-6 px-[5%] relative">
-      {/* <HeroContent />
+      <HeroContent />
       {isNameFormVisible ? (
         <NameForm />
       ) : isDomainsFormVisible ? (
@@ -20,8 +20,7 @@ const Hero = () => {
         <EmailDisplay />
       ) : (
         <CreateEmailBlock />
-      )} */}
-        <EmailDisplay />
+      )}
     </section>
     
   );
