@@ -1,58 +1,108 @@
-
 # One Temp Mail
 
-[![One Temp Mail Demo](./screenshots/screenshot.png)](https://mouadbt.github.io/one-temp-mail/ "Click to visit live demo")
+![Version](https://img.shields.io/badge/version-1.0-blue)
+![React](https://img.shields.io/badge/React-supported-brightgreen?logo=react)
+![Vite](https://img.shields.io/badge/Vite-supported-646CFF?logo=vite)
+![License](https://img.shields.io/badge/license-MIT-green)
+![No Tracking](https://img.shields.io/badge/tracking-none-lightgrey)
 
-A free, privacy-focused temporary email service built with React. Generate disposable emails, protect your inbox from spam, and enjoy a seamless user experience.
+A modern, privacy-focused web application for generating disposable temporary email addresses. Protect your real inbox from spam, advertising mailings, and hacking attempts by using a secure temporary email.
 
-[![Stars](https://img.shields.io/github/stars/mouadbt/one-temp-mail)](https://github.com/mouadbt/one-temp-mail/stargazers)
-[![Deployed](https://img.shields.io/badge/Deployed-GitHub%20Pages-brightgreen)](https://mouadbt.github.io/one-temp-mail/)
+![App Overview](screenshots/screenshot.png)
+
+> [!IMPORTANT]
+> **Privacy Note:** All generated emails are temporary. Once you reset or the session expires, the data is removed to ensure your privacy and security.
 
 ## Table of Contents
-- [About](#about)
+- [Screenshots](#screenshots)
 - [Features](#features)
-- [Live Demo](#live-demo)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-## About
-One Temp Mail is a free, open-source temporary email service built with React. It allows users to generate disposable email addresses (random or custom with hCaptcha verification), receive emails, and view contents in a user-friendly interface. Perfect for protecting your privacy and avoiding spam when signing up for online services.
+## Screenshots
 
-## Features
-- 📨 Generate random or custom temporary email addresses
-- 🔒 hCaptcha verification for secure custom email creation
-- 📥 Real-time email inbox with instant message updates
-- 🎨 Responsive, user-friendly interface built with React and Tailwind CSS
-- 🛡️ Protect your personal email from spam and privacy risks
+![Full Page Overview](screenshots/full-page.png)
 
-## Live Demo
-Try One Temp Mail in action: [One Temp Mail](https://mouadbt.github.io/one-temp-mail/)
+![Custom Email Creation](screenshots/custom-email.png)
 
-*See it work: Generate a temporary email and receive messages in real-time!*
+![Email Received](screenshots/email-received.png)
 
-## Technologies Used
-- **React**: For building the user interface
-- **Tailwind CSS**: For responsive styling
-- **shadcn/ui**: For modern UI components
+![Inbox View](screenshots/inbox.png)
 
-## Installation
+![Reset Action](screenshots/reset.png)
+
+## ✨ Features
+
+- 📧 **Instant Generation**: Create random temporary email addresses with one click.
+- ✏️ **Custom Addresses**: Choose your preferred username and domain for a personalized experience.
+- 📥 **Real-time Inbox**: Receive emails instantly with automatic refreshing and desktop-like notifications.
+- 🛡️ **Anti-Spam Protection**: Use hCaptcha to prevent bot abuse and ensure service stability.
+- 🎨 **Premium UI/UX**: Clean, responsive interface built with Tailwind CSS 4 and shadcn/ui.
+- ⚡ **High Performance**: Optimized with Vite for lightning-fast loading and smooth transitions.
+- 📱 **Mobile Ready**: Fully responsive design that works perfectly on any device.
+
+## 🛠️ Tech Stack
+
+- **React 19** - UI framework
+- **Vite** - Build tool and development server
+- **Tailwind CSS 4** - Utility-first styling
+- **shadcn/ui** - High-quality accessible components
+- **TanStack Query (React Query)** - Powerful asynchronous state management
+- **Framer Motion** - Fluid animations and transitions
+- **Axios** - Promise-based HTTP client
+- **Lucide Icons** - Beautifully simple icons
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/mouadbt/one-temp-mail.git
+   cd one-temp-mail
    ```
+
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Start the development server:
+
+3. Create a `.env` file and add your API base URL:
+   ```env
+   VITE_API_BASE_URL=https://api.mail.tm
+   ```
+
+4. Start the development server:
    ```bash
    npm run dev
    ```
 
-## Usage
-1. Open `http://localhost:5173/` in your browser.
-2. Enter a username or random text to generate a temporary email.
-3. Click "Generate Email" to create a disposable address.
-4. Copy the email and use it for sign-ups or testing.
-5. Monitor the inbox for incoming emails in real-time.
+5. Open your browser and navigate to `http://localhost:5173`
+
+## 📦 Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint for code quality
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- [Mail.tm API](https://mail.tm/) - For providing the backend email infrastructure
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [TanStack Query](https://tanstack.com/query/latest)

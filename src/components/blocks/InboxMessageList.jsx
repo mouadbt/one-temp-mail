@@ -13,12 +13,12 @@ const InboxMessageList = ({ messages, seenMessages, onFetchMessageContent, messa
   return (
     <Accordion type="single" collapsible>
       {messages.map((message) => (
-        <AccordionItem value={message["@id"]} key={message["@id"]}>
+        <AccordionItem value={message["@id"]} key={message["@id"]} className={'border-0'}>
           <AccordionTrigger
             onClick={() => onFetchMessageContent(message.id)}
             className={`text-start flex flex-wrap md:flex-nowrap justify-between w-full items-center p-2 px-4 my-1 gap-4 ${
               !isMessageSeen(message.id)
-                ? "border-0 border-l-8 rounded rounded-r-none border-primary border-b-foreground/40 border-b"
+                ? " rounded rounded-r-none border-0 border-l-8 border-primary"
                 : ""
             }`}
           >
