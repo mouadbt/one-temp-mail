@@ -8,7 +8,7 @@
 
 A modern, privacy-focused web application for generating disposable temporary email addresses. Protect your real inbox from spam, advertising mailings, and hacking attempts by using a secure temporary email.
 
-![App Overview](screenshots/screenshot.png)
+![App Overview](screenshots/screenshot.webp)
 
 > [!IMPORTANT]
 > **Privacy Note:** All generated emails are temporary. Once you reset or the session expires, the data is removed to ensure your privacy and security.
@@ -24,15 +24,15 @@ A modern, privacy-focused web application for generating disposable temporary em
 
 ## Screenshots
 
-![Full Page Overview](screenshots/full-page.png)
+![Full Page Overview](screenshots/full-page.webp)
 
-![Custom Email Creation](screenshots/custom-email.png)
+![Custom Email Creation](screenshots/custom-email.webp)
 
-![Email Received](screenshots/email-received.png)
+![Email Received](screenshots/email-received.webp)
 
-![Inbox View](screenshots/inbox.png)
+![Inbox View](screenshots/inbox.webp)
 
-![Reset Action](screenshots/reset.png)
+![Reset Action](screenshots/reset.webp)
 
 ## ✨ Features
 
