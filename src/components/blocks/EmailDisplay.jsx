@@ -126,7 +126,7 @@ const EmailDisplay = () => {
             </p>
             <InfoTooltip
               ariaLabel="Copy email"
-              triggerClassName="rounded-full p-1 focus:outline-1 outline-primary/50 [&_svg]:-translate-y-[.5px] "
+              triggerClassName="rounded-full p-1 focus-visible:outline-1 outline-primary/50 [&_svg]:-translate-y-[.5px] "
               content="Copy Email address"
               handleClick={copyEmail}
             >
