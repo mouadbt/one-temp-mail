@@ -6,17 +6,17 @@ const loadPersistedState = () => {
         const stored = localStorage.getItem("tempEmail");
         if (stored) {
             const { email, token } = JSON.parse(stored);
-            
+
             // Validate that both email and token exist and are non-empty strings
-            if (email && token && 
+            if (email && token &&
                 typeof email === "string" && typeof token === "string" &&
                 email.trim().length > 0 && token.trim().length > 0) {
-                
-                return { 
-                    email: email.trim(), 
-                    token: token.trim(), 
+
+                return {
+                    email: email.trim(),
+                    token: token.trim(),
                     isEmailCreated: true,
-                    isEmailDisplayVisible: true 
+                    isEmailDisplayVisible: true
                 };
             }
         }
@@ -45,7 +45,7 @@ export const initialEmailState = {
 }
 export const emailReducer = (state, action) => {
     switch (action.type) {
-        
+
         case SET_NAME_FORM_VISIBLE: {
             /* When we render the name form:
                 -> clear the name value to let user enter a username
@@ -201,12 +201,22 @@ export const emailReducer = (state, action) => {
 
         case RESET_STATE: {
             /*
-                Reset all email-related state to initial values
+                Reset all email-related state to clean values
                 Keep domains since they're managed by React Query
             */
             return {
-                ...initialEmailState,
-                domains: state.domains, // Preserve fetched domains
+                isNameFormVisible: false,
+                isDomainsFormVisible: false,
+                isEmailDisplayVisible: false,
+                isDrawerOpen: false,
+                verificationPath: null,
+                username: null,
+                customEmail: null,
+                domains: state.domains,
+                selectedDomain: null,
+                email: null,
+                token: null,
+                isEmailCreated: false,
             };
         };
 

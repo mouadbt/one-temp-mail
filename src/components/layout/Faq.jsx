@@ -7,8 +7,16 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import SecondaryBtn from "../elements/SecondaryBtn";
+import useEmailContext from "@/hooks/useEmailContext";
 
 const Faq = () => {
+  const { resetAll, triggerVerification } = useEmailContext();
+
+  const handleGenerateNow = () => {
+    resetAll();
+    triggerVerification("random");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const faqs = [
     {
       q: "What is One Temp Mail? (Temporary Email, Disposable Email, Temp Mail)",
@@ -66,7 +74,11 @@ const Faq = () => {
             works in seconds. Performance ranges: 24 hours, 7 days, 28 days, 3
             months. Last update: 5 hours ago.
           </p>
-          <SecondaryBtn content='Generate Email now' icon={<RightArrow/>}/>
+          <SecondaryBtn
+            onClick={handleGenerateNow}
+            content="Generate Email now"
+            icon={<RightArrow />}
+          />
         </div>
 
         <div className="w-full">
