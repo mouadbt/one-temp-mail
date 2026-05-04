@@ -19,21 +19,38 @@ const Faq = () => {
   };
   const faqs = [
     {
-      q: "What is One Temp Mail? (Temporary Email, Disposable Email, Temp Mail)",
-      a: "One Temp Mail is a free temporary email service that lets you instantly generate a disposable email address to receive emails online without exposing your real inbox. It's perfect for testing, sign-ups, one-time verification codes, and protecting your privacy. People also search for one time email, one-time email, one time mail, and one temp mail.",
+      q: "What is a temporary email?",
+      a: "A temporary email is a short-lived inbox you can use to receive emails without using your personal address.",
     },
     {
-      q: "How does a temporary email address work?",
-      a: "Click generate to create a unique temp mail address. Use it anywhere you need an email. Incoming messages appear in your inbox panel in real time—no registration required. You can discard the address when you're done.",
-    },
-    {
-      q: "Is One Temp Mail secure and private?",
-      a: "We never ask you to sign up to use a disposable email. Temporary emails reduce spam to your primary inbox and help keep your personal identity private. Do not use for sensitive data or account recovery—disposable mailboxes are intended for short-term use.",
+      q: "How does it work?",
+      a: "Generate an email instantly and use it anywhere. Incoming messages appear in real time without registration.",
     },
     {
       q: "How long are emails stored?",
-      a: "Temporary inboxes are short-lived. Emails are retained only for a limited period suitable for testing and quick verifications. For long-term storage, use a permanent email provider.",
+      a: "Emails are stored for a limited time and automatically deleted.",
     },
+    {
+      q: "Can I receive verification codes?",
+      a: "Yes, most standard emails including OTP and verification messages are supported.",
+    },
+    {
+      q: "What is One Temp Mail? (Temporary Email, Disposable Email, Temp Mail)",
+      a: "One Temp Mail is a free temporary email service that lets you instantly generate a disposable email address to receive emails online without exposing your real inbox. It's perfect for testing, sign-ups, one-time verification codes, and protecting your privacy.",
+    },
+    // {
+    //   q: "How does a temporary email address work?",
+    //   a: "Click generate to create a unique temp mail address. Use it anywhere you need an email. Incoming messages appear in your inbox panel in real time—no registration required. You can discard the address when you're done.",
+    // },
+
+    // {
+    //   q: "Is One Temp Mail secure and private?",
+    //   a: "We never ask you to sign up to use a disposable email. Temporary emails reduce spam to your primary inbox and help keep your personal identity private. Do not use for sensitive data or account recovery—disposable mailboxes are intended for short-term use.",
+    // },
+    // {
+    //   q: "How long are emails stored?",
+    //   a: "Temporary inboxes are short-lived. Emails are retained only for a limited period suitable for testing and quick verifications. For long-term storage, use a permanent email provider.",
+    // },
     {
       q: "Can I receive attachments and verification codes?",
       a: "Yes, you can receive standard messages including common verification codes (OTP). Large or executable attachments may be blocked for safety.",
@@ -42,22 +59,22 @@ const Faq = () => {
       q: "What are the benefits of disposable email vs. regular email?",
       a: "Disposable email protects your privacy, reduces spam, and keeps marketing lists away from your primary address. It's ideal for short-term needs like trials, downloads, beta testing, and one-time sign-ups.",
     },
-    {
-      q: "Is One Temp Mail free?",
-      a: "Yes—generating and using temporary email addresses is free.",
-    },
-    {
-      q: "Can I delete or change my temp email address?",
-      a: "Absolutely. You can discard the current disposable address and generate a new one at any time.",
-    },
-    {
-      q: "Do you support GDPR and data protection best practices?",
-      a: "We follow privacy-first principles. Avoid using disposable addresses for sensitive personal information. Data is purged automatically on a rolling basis.",
-    },
-    {
-      q: "Who should use One Temp Mail? (Developers, Testers, Privacy-focused users)",
-      a: "Developers and QA can quickly test email flows. Privacy-focused users can avoid spam when registering on websites, downloading resources, or accessing gated content.",
-    },
+    // {
+    //   q: "Is One Temp Mail free?",
+    //   a: "Yes—generating and using temporary email addresses is free.",
+    // },
+    // {
+    //   q: "Can I delete or change my temp email address?",
+    //   a: "Absolutely. You can discard the current disposable address and generate a new one at any time.",
+    // },
+    // {
+    //   q: "Do you support GDPR and data protection best practices?",
+    //   a: "We follow privacy-first principles. Avoid using disposable addresses for sensitive personal information. Data is purged automatically on a rolling basis.",
+    // },
+    // {
+    //   q: "Who should use One Temp Mail? (Developers, Testers, Privacy-focused users)",
+    //   a: "Developers and QA can quickly test email flows. Privacy-focused users can avoid spam when registering on websites, downloading resources, or accessing gated content.",
+    // },
   ];
   return (
     <section className="w-full mx-auto px-[5%] mt-20">
@@ -71,8 +88,7 @@ const Faq = () => {
           <p className="text-md sm:text-lg text-foreground/50 md:text-xl">
             One Temp Mail is a simple, free tool for creating disposable emails.
             Check the answers on the right or generate an email to see how it
-            works in seconds. Performance ranges: 24 hours, 7 days, 28 days, 3
-            months. Last update: 5 hours ago.
+            works in seconds.
           </p>
           <SecondaryBtn
             onClick={handleGenerateNow}
