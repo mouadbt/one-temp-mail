@@ -8,6 +8,8 @@
 
 A modern, privacy-focused web application for generating disposable temporary email addresses. Protect your real inbox from spam, advertising mailings, and hacking attempts by using a secure temporary email.
 
+🔗 **Live Demo:** [one-temp-mail.netlify.app](https://one-temp-mail.netlify.app/)
+
 ![App Overview](screenshots/screenshot.webp)
 
 > [!IMPORTANT]
