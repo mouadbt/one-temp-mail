@@ -1,9 +1,10 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createAccount, getToken } from '@/lib/api';
 import { generatePassword } from '@/lib/utils';
 import { toast } from 'sonner';
 
 const useEmailCreationMutation = (onSuccessCallback) => {
+    const queryClient = useQueryClient();
     return useMutation({
         mutationFn: async ({ name, domain }) => {
             // Validate inputs
@@ -39,11 +40,10 @@ const useEmailCreationMutation = (onSuccessCallback) => {
             }
         },
         onSuccess: (data) => {
-            toast.success("Temp email created successfully");
             
             // Store email state in localStorage for persistence across refreshes
             try {
-                localStorage.setItem("tempEmail", JSON.stringify(data));
+                localStorage.setItem("tempEmail:v1", JSON.stringify(data));
             } catch (error) {
                 console.error("Failed to store email in localStorage:", error);
             }
@@ -51,6 +51,10 @@ const useEmailCreationMutation = (onSuccessCallback) => {
             if (onSuccessCallback) {
                 onSuccessCallback(data);
             }
+
+            queryClient.invalidateQueries({ queryKey: ["messages"] });
+
+            toast.success("Temp email created successfully");
         },
         onError: (error) => {
             console.error('Account creation error:', error);

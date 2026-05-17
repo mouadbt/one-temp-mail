@@ -141,7 +141,7 @@ const EmailDisplay = () => {
               content="Reset"
               handleClick={() => setIsResetDialogOpen(true)}
             >
-              <ResetIcon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+              <ResetIcon className="size-4 sm:size-5 text-primary" />
             </InfoTooltip>
 
           <ConfirmDialog

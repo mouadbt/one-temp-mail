@@ -3,7 +3,7 @@ import { SET_DOMAINS_FORM_VISIBLE, SET_NAME_FORM_VISIBLE, SET_DRAWER_VISIBLE, SE
 // Load persisted email state from localStorage with validation
 const loadPersistedState = () => {
     try {
-        const stored = localStorage.getItem("tempEmail");
+        const stored = localStorage.getItem("tempEmail:v1");
         if (stored) {
             const { email, token } = JSON.parse(stored);
 

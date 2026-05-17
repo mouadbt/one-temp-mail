@@ -42,7 +42,7 @@ const NameForm = () => {
           triggerClassName="hidden -ml-12 mt-1 sm:flex items-center justify-center rounded-full w-7 min-w-7 h-7"
           content="Choose a unique username for your temporary email. Avoid common names, brands, or well-known words"
         >
-          <Info className="w-4 h-4 text-foreground" />
+          <Info className="size-4 text-foreground" />
         </InfoTooltip>
 
         <SecondaryBtn

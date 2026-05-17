@@ -9,7 +9,7 @@ import LoadingState from "../elements/LoadingState";
 // Helper functions for localStorage seenMessages
 const getSeenMessages = () => {
   try {
-    const stored = localStorage.getItem("seenMessages");
+    const stored = localStorage.getItem("seenMessages:v1");
     return stored ? JSON.parse(stored) : [];
   } catch (error) {
     console.error("Failed to load seenMessages from localStorage:", error);
@@ -22,7 +22,7 @@ const markMessageAsSeen = (id) => {
     const seenMessages = getSeenMessages();
     if (!seenMessages.includes(id)) {
       seenMessages.push(id);
-      localStorage.setItem("seenMessages", JSON.stringify(seenMessages));
+      localStorage.setItem("seenMessages:v1", JSON.stringify(seenMessages));
     }
   } catch (error) {
     console.error("Failed to save seenMessage to localStorage:", error);
@@ -34,7 +34,7 @@ const Inbox = () => {
   const { token, isEmailCreated } = state;
 
   // Local state for UI
-  const [seenMessages, setSeenMessages] = useState(getSeenMessages());
+  const [seenMessages, setSeenMessages] = useState(() => getSeenMessages());
   const [currentMessageContent, setCurrentMessageContent] = useState(null);
 
   // React Query: Fetch messages list

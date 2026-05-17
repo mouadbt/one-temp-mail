@@ -24,8 +24,8 @@ const useEmailReducer = () => {
     const resetAll = useCallback(() => {
         // Clear localStorage
         try {
-            localStorage.removeItem("tempEmail");
-            localStorage.removeItem("seenMessages");
+            localStorage.removeItem("tempEmail:v1");
+            localStorage.removeItem("seenMessages:v1");
         } catch (error) {
             console.error("Failed to clear localStorage:", error);
         }

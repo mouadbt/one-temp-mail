@@ -5,7 +5,7 @@ const PrimaryBtn = ({ content, icon, variant = "border", onClickHandler }) => {
   const isMain = variant === "main";
 
   const btnClassName =
-    "w-[80%] sm:w-fit justify-center whitespace-nowrap group flex p-4 pl-3 gap-2 items-center sm:justify-start rounded-3xl text-sm shadow-sm font-medium h-9 transition-all duration-300 hover:bg-foreground focus:bg-foreground hover:text-background focus:text-background hover:pl-1 focus:pl-1";
+    "outline-none w-[80%] sm:w-fit justify-center whitespace-nowrap group flex p-4 pl-3 gap-2 items-center sm:justify-start rounded-3xl text-sm shadow-sm font-medium h-9 transition-all duration-300 hover:bg-foreground focus:bg-foreground hover:text-background focus:text-background hover:pl-1 focus:pl-1 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
 
   const buttonClasses = isMain
     ? "bg-primary"

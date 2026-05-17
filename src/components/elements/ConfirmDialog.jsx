@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import SecondaryBtn from "./SecondaryBtn";
 
 const ConfirmDialog = ({
   trigger,
@@ -27,7 +28,7 @@ const ConfirmDialog = ({
           <DialogDescription className="pt-4 flex flex-col gap-2 items-start">
             {description}
             {confirmButton && (
-              <div onClick={() => onConfirm?.()}>{confirmButton}</div>
+              <SecondaryBtn onClick={() => onConfirm?.()}>{confirmButton}</SecondaryBtn>
             )}
           </DialogDescription>
         </DialogHeader>
