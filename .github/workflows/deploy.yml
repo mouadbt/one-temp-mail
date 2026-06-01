@@ -18,6 +18,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_HCAPTCHA_SITE_KEY: ${{ secrets.VITE_HCAPTCHA_SITE_KEY }}
 
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
