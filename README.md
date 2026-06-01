@@ -5,6 +5,7 @@
 ![Vite](https://img.shields.io/badge/Vite-supported-646CFF?logo=vite)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![No Tracking](https://img.shields.io/badge/tracking-none-lightgrey)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3cf7e793-33c3-4a48-a126-330ec17eeef1/deploy-status)](https://app.netlify.com/projects/one-temp-mail/deploys)
 
 A modern, privacy-focused web application for generating disposable temporary email addresses. Protect your real inbox from spam, advertising mailings, and hacking attempts by using a secure temporary email.
 
