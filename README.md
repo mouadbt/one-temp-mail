@@ -6,10 +6,11 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![No Tracking](https://img.shields.io/badge/tracking-none-lightgrey)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3cf7e793-33c3-4a48-a126-330ec17eeef1/deploy-status)](https://app.netlify.com/projects/one-temp-mail/deploys)
+![TypeScript](https://img.shields.io/badge/TypeScript-supported-3178C6?logo=typescript&logoColor=white)
 
 A modern, privacy-focused web application for generating disposable temporary email addresses. Protect your real inbox from spam, advertising mailings, and hacking attempts by using a secure temporary email.
 
-🔗 **Live Demo:** [one-temp-mail.netlify.app](https://one-temp-mail.netlify.app/)
+**Live Demo:** [one-temp-mail.netlify.app](https://one-temp-mail.netlify.app/)
 
 ![App Overview](screenshots/screenshot.webp)
 
@@ -37,17 +38,17 @@ A modern, privacy-focused web application for generating disposable temporary em
 
 ![Reset Action](screenshots/reset.webp)
 
-## ✨ Features
+## Features
 
-- 📧 **Instant Generation**: Create random temporary email addresses with one click.
-- ✏️ **Custom Addresses**: Choose your preferred username and domain for a personalized experience.
-- 📥 **Real-time Inbox**: Receive emails instantly with automatic refreshing and desktop-like notifications.
-- 🛡️ **Anti-Spam Protection**: Use hCaptcha to prevent bot abuse and ensure service stability.
-- 🎨 **Premium UI/UX**: Clean, responsive interface built with Tailwind CSS 4 and shadcn/ui.
-- ⚡ **High Performance**: Optimized with Vite for lightning-fast loading and smooth transitions.
-- 📱 **Mobile Ready**: Fully responsive design that works perfectly on any device.
+- **Instant Generation**: Create random temporary email addresses with one click.
+- **Custom Addresses**: Choose your preferred username and domain for a personalized experience.
+- **Real-time Inbox**: Receive emails instantly with automatic refreshing and desktop-like notifications.
+- **Anti-Spam Protection**: Use hCaptcha to prevent bot abuse and ensure service stability.
+- **Premium UI/UX**: Clean, responsive interface built with Tailwind CSS 4 and shadcn/ui.
+- **High Performance**: Optimized with Vite for lightning-fast loading and smooth transitions.
+- **Mobile Ready**: Fully responsive design that works perfectly on any device.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **React 19** - UI framework
 - **Vite** - Build tool and development server
@@ -58,7 +59,7 @@ A modern, privacy-focused web application for generating disposable temporary em
 - **Axios** - Promise-based HTTP client
 - **Lucide Icons** - Beautifully simple icons
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -90,20 +91,24 @@ A modern, privacy-focused web application for generating disposable temporary em
 
 5. Open your browser and navigate to `http://localhost:5173`
 
-## 📦 Available Scripts
+## Available Scripts
 
 - `npm run dev` - Start the development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview the production build locally
 - `npm run lint` - Run ESLint for code quality
 
-## 📄 License
+## License
 
-This project is open source and available under the [MIT License](LICENSE).
+Copyright (C) 2026 Mouad
 
-## 🙏 Acknowledgments
+This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
 
-- [Mail.tm API](https://mail.tm/) - For providing the backend email infrastructure
+See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [TempMailPortal API](https://tempmailportal.com/) - For providing the backend email infrastructure
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
