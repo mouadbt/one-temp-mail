@@ -1,6 +1,6 @@
 # One Temp Mail
 
-![Version](https://img.shields.io/badge/version-1.0-blue)
+![Version](https://img.shields.io/badge/version-2.0-red)
 ![React](https://img.shields.io/badge/React-supported-brightgreen?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-supported-646CFF?logo=vite)
 ![License](https://img.shields.io/badge/license-MIT-green)
