@@ -1,26 +1,25 @@
 import GradientBg from "#components/blocks/GradientBg";
 import HeroContent from "#components/blocks/HeroContent";
+import { RightArrow } from "#components/Icons/RightArrow";
 import PrimaryBtn from "#components/ui/PrimaryBtn";
 
 export default function Hero() {
   return (
-    <section className="w-full pt-32 md:pt-48 space-y-6 px-[5%] relative overflow-hidden">
+    <section className="w-full pt-32 md:pt-48 space-y-6 px-[5%] relative overflow-hidden pb-2">
       <GradientBg />
       <HeroContent />
       <PrimaryBtn
-        content="gg"
+        content="Generate Your Temp Email"
+        className="mx-auto z-50"
         onClickHandler={() => {
           return;
         }}
         icon={
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4 12H20M20 12L14 6M20 12L14 18"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-          </svg>
+          <RightArrow
+            className="stroke-foreground text-[0px] translate-x-[-200%] group-active:-rotate-45 group-hover:text-lg group-hover:translate-x-0 group-focus:text-lg group-focus:translate-x-0 transition-all duration-300 group-active:text-lg group-active:translate-x-0"
+            width="1em"
+            height="1em"
+          />
         }
       />
     </section>
