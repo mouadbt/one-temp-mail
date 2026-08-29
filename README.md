@@ -15,6 +15,9 @@ A modern, privacy-focused web application for generating disposable temporary em
 ![App Overview](screenshots/screenshot.webp)
 
 > [!IMPORTANT]
+
+> **Development Status:** This project is currently undergoing a major refactoring. The live version may be incomplete or temporarily non-functional while the rebuild is in progress. The screenshots below show the responsive UI developed for desktop, tablet, and mobile.
+
 > **Privacy Note:** All generated emails are temporary. Once you reset or the session expires, the data is removed to ensure your privacy and security.
 
 ## Table of Contents
