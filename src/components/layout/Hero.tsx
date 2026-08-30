@@ -1,4 +1,3 @@
-import GradientBg from "#components/blocks/GradientBg";
 import HeroContent from "#components/blocks/HeroContent";
 import { RightArrow } from "#components/Icons/RightArrow";
 import PrimaryBtn from "#components/ui/PrimaryBtn";
@@ -6,7 +5,6 @@ import PrimaryBtn from "#components/ui/PrimaryBtn";
 export default function Hero() {
   return (
     <section className="w-full pt-32 md:pt-48 space-y-6 px-[5%] relative overflow-hidden pb-2">
-      <GradientBg />
       <HeroContent />
       <PrimaryBtn
         content="Generate Your Temp Email"
