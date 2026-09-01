@@ -4,7 +4,7 @@ type PrimaryBtnProps = {
   content: string;
   icon: ReactNode;
   className?: string;
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
 };
 const PrimaryBtn = ({
   content,
