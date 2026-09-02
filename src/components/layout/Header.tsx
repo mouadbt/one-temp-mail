@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header className="absolute h-min inset-0 w-full flex px-[5%] pt-8 items-center justify-between z-50">
-      <a href="#/">
+      <a href="/">
         <img
           width="128"
           height="40"

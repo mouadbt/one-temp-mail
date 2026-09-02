@@ -9,12 +9,12 @@ type EmailContextProviderProps = {
   children: ReactNode;
 };
 
-export function EmailContextProvider({
-  children,
-}: EmailContextProviderProps) {
+export function EmailContextProvider({ children }: EmailContextProviderProps) {
   const [email, setEmail] = useState<Email>(null);
   const [messages, setMessages] = useState<Messages>([]);
-
+  const generateEmail = async () => {
+    console.log("ff");
+  };
   return (
     <EmailContext.Provider
       value={{
@@ -22,6 +22,7 @@ export function EmailContextProvider({
         messages,
         setEmail,
         setMessages,
+        generateEmail,
       }}
     >
       {children}

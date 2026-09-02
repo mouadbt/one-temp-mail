@@ -7,25 +7,28 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
 } from "#components/ui/drawer";
+import useEmailContextHook from "#hooks/useEmailContextHook";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { toast } from "sonner";
 
-// import { RightArrow } from "#components/Icons/RightArrow";
-// import PrimaryBtn from "#components/ui/PrimaryBtn";
-
-export default function HumanVerification() {
+export default function HumanVerification({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  const { generateEmail } = useEmailContextHook();
   const siteKey = import.meta.env.VITE_HCAPTCHA_SITE_KEY;
 
   const onVerify = (token: string) => {
     if (token) {
-      //   handleVerificationSuccess();
-      console.log(token);
+      generateEmail ();
     }
   };
 
-  const onError = (error) => {
+  const onError = (error: string) => {
     console.error("hCaptcha error:", error);
     toast.error("Captcha verification failed. Please try again.");
   };
@@ -35,43 +38,25 @@ export default function HumanVerification() {
   };
 
   return (
-    <Drawer showSwipeHandle>
-      <DrawerTrigger
-        render={
-          //   <PrimaryBtn
-          //     content="Generate Your Temp Email"
-          //     className="mx-auto z-50"
-          //     icon={
-          //       <RightArrow
-          //         className="stroke-foreground text-[0px] translate-x-[-200%] group-active:-rotate-45 group-hover:text-lg group-hover:translate-x-0 group-focus:text-lg group-focus:translate-x-0 transition-all duration-300 group-active:text-lg group-active:translate-x-0"
-          //         width="1em"
-          //         height="1em"
-          //       />
-          //     }
-          //   />
-          <Button variant="outline">Open Snap Drawer</Button>
-        }
-      />
-      <DrawerContent>
+    <Drawer showSwipeHandle open={open} onOpenChange={onOpenChange}>
+      <DrawerContent className={"**:data-drawer-content:gap-8"}>
         <DrawerHeader className="*:text-center pt-8">
           <DrawerTitle>Verify you're human</DrawerTitle>
           <DrawerDescription>
             Please complete the captcha to continue
           </DrawerDescription>
         </DrawerHeader>
-        <div className="flex-1 p-4">
-          <div className="rounded-2xl bg-muted group-data-[swipe-axis=x]/drawer-popup:size-full group-data-[swipe-axis=y]/drawer-popup:h-80 group-data-[swipe-axis=y]/drawer-popup:w-full" />
-        </div>
-        <DrawerFooter>
+        <div className="flex justify-center">
           <HCaptcha
-            sitekey={"siteKey"}
+            sitekey={siteKey}
             onVerify={onVerify}
             onError={onError}
             onExpire={onExpire}
             theme="dark"
           />
-
-          <DrawerClose render={<Button className="">Cancel</Button>} />
+        </div>
+        <DrawerFooter>
+          <DrawerClose render={<Button variant={"link"}>Cancel</Button>} />
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

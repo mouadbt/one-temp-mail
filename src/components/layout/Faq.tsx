@@ -6,8 +6,9 @@ import {
   AccordionTrigger,
 } from "#components/ui/accordion";
 import PrimaryBtn from "#components/ui/PrimaryBtn";
+import type { DrawerTriggerProps } from "../../types/drawer";
 
-const Faq = () => {
+const Faq = ({ setDrawerOpen }: DrawerTriggerProps) => {
   const faqs = [
     {
       q: "What is a temporary email?",
@@ -55,9 +56,7 @@ const Faq = () => {
 
           <PrimaryBtn
             content="Generate Your Temp Email"
-            onClickHandler={() => {
-              return;
-            }}
+            onClickHandler={() => setDrawerOpen(true)}
             icon={
               <RightArrow
                 className="stroke-foreground text-[0px] translate-x-[-200%] group-active:-rotate-45 group-hover:text-lg group-hover:translate-x-0 group-focus:text-lg group-focus:translate-x-0 transition-all duration-300 group-active:text-lg group-active:translate-x-0"

@@ -18,6 +18,7 @@ export type EmailContextType = {
   messages: Messages;
   setEmail: React.Dispatch<React.SetStateAction<Email>>;
   setMessages: React.Dispatch<React.SetStateAction<Messages>>;
+  generateEmail: () => Promise<void>;
 };
 
 export const EmailContext = createContext<EmailContextType | null>(null);
