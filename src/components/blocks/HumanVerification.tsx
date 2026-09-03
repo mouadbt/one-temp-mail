@@ -24,7 +24,8 @@ export default function HumanVerification({
 
   const onVerify = (token: string) => {
     if (token) {
-      generateEmail ();
+      generateEmail();
+      onOpenChange(false);
     }
   };
 
