@@ -6,6 +6,7 @@ import Header from "#components/layout/Header";
 import Hero from "#components/layout/Hero";
 import Inbox from "#components/layout/Inbox";
 import { useState } from "react";
+import { Toaster } from "sonner";
 
 function App() {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
@@ -18,6 +19,7 @@ function App() {
       <Inbox />
       <Faq setDrawerOpen={setDrawerOpen} />
       <Footer />
+      <Toaster richColors theme="dark" />
     </>
   );
 }

@@ -2,6 +2,8 @@ import { createContext } from "react";
 
 export type Email = string | null;
 
+export type Token = string | null;
+
 export type Message = {
   id: string;
   from: string;
@@ -15,8 +17,10 @@ export type Messages = Message[];
 
 export type EmailContextType = {
   email: Email;
+  token: Token;
   messages: Messages;
   setEmail: React.Dispatch<React.SetStateAction<Email>>;
+  setToken: React.Dispatch<React.SetStateAction<Token>>;
   setMessages: React.Dispatch<React.SetStateAction<Messages>>;
   generateEmail: () => Promise<void>;
 };

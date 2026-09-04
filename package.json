@@ -16,6 +16,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cn": "^0.2.5",
     "lucide-react": "^1.34.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -40,8 +41,20 @@
     "vite": "^8.2.2"
   },
   "imports": {
-    "#components/*": ["./src/components/*.tsx", "./src/components/*.ts", "./src/components/*"],
-    "#lib/*": ["./src/lib/*.ts", "./src/lib/*.tsx", "./src/lib/*"],
-    "#hooks/*": ["./src/hooks/*.tsx", "./src/hooks/*.ts", "./src/hooks/*"]
+    "#components/*": [
+      "./src/components/*.tsx",
+      "./src/components/*.ts",
+      "./src/components/*"
+    ],
+    "#lib/*": [
+      "./src/lib/*.ts",
+      "./src/lib/*.tsx",
+      "./src/lib/*"
+    ],
+    "#hooks/*": [
+      "./src/hooks/*.tsx",
+      "./src/hooks/*.ts",
+      "./src/hooks/*"
+    ]
   }
 }
