@@ -1,11 +1,18 @@
 import { toast } from "sonner";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "#components/ui/tooltip";
-import { Clipboard, Undo2 } from "lucide-react";
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "#components/ui/dialog";
+import {  Clipboard, Undo2 } from "lucide-react";
 import { Button } from "#components/ui/button";
+import TooltipComp from "#components/ui/TooltipComp";
+import PrimaryBtn from "#components/ui/PrimaryBtn";
 export default function EmailDisplay({ email }: { email: string }) {
   const copyEmail = () => {
     if (!email) return;
@@ -22,67 +29,59 @@ export default function EmailDisplay({ email }: { email: string }) {
           {email}
         </p>
 
-        <Tooltip>
-          <TooltipTrigger
-            delay={0}
-            render={
-              <Button
-                variant={"ghost"}
-                className={"rounded-full p-0 w-10 h-10"}
-                onClick={copyEmail}
-              >
-                <span className="sr-only">Copy email to clipboard</span>
-                <Clipboard className="size-5 text-primary" />
-              </Button>
-            }
-          />
-
-          <TooltipContent>Copy Email address</TooltipContent>
-        </Tooltip>
-      </div>
-
-      {/* Reset */}
-      <Tooltip>
-        <TooltipTrigger
-          delay={0}
-          render={
+        <TooltipComp
+          content="Copy Email address"
+          triggerEl={
             <Button
               variant={"ghost"}
               className={"rounded-full p-0 w-10 h-10"}
-            //   onClick={copyEmail}
+              onClick={copyEmail}
             >
-              <span className="sr-only">Generate new Email</span>
-              <Undo2 className="size-5 text-primary" />
+              <span className="sr-only">Copy email to clipboard</span>
+              <Clipboard className="size-5 text-primary" />
             </Button>
           }
         />
+      </div>
 
-        <TooltipContent>Generate new Email</TooltipContent>
-      </Tooltip>
-
-      {/* <ConfirmDialog
-        open={isResetDialogOpen}
-        onOpenChange={setIsResetDialogOpen}
-        title="Are you absolutely sure?"
-        description={
-          <>
-            This action cannot be undone. This will permanently delete this
-            email and remove all the messages.
-            <button
-              onClick={handleReset}
-              className="active:translate-y-[2px] py-1 group relative flex items-center overflow-hidden px-8 whitespace-nowrap gap-1 justify-start rounded-3xl bg-primary text-sm transition-colors duration-300 hover:bg-primary/90 active:bg-primary/70 shadow-sm font-medium h-9"
-            >
-              <span className="ease absolute right-0 flex h-9 w-10 translate-x-full transform items-center justify-start duration-300 group-hover:translate-x-0">
-                <ResetIcon className="w-3 h-3 text-foreground" />
-              </span>
-              <span className="relative transform transition-transform duration-300 group-hover:-translate-x-3 text-foreground">
-                Yes Reset
-              </span>
-            </button>
-          </>
-        }
-        dialogContentClassName="bg-background border-foreground/10 max-w-[90%] sm:max-w-md rounded-xl *:text-start"
-      /> */}
+      {/* Reset */}
+      <Dialog>
+        <TooltipComp
+          content="Reset and generate new Email"
+          triggerEl={
+            <DialogTrigger
+              render={
+                <Button
+                  variant={"ghost"}
+                  className={"rounded-full p-0 w-10 h-10"}
+                >
+                  <span className="sr-only">Reset and generate new Email</span>
+                  <Undo2 className="size-5 text-primary" />
+                </Button>
+              }
+            />
+          }
+        />
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Are you absolutely sure?</DialogTitle>
+            <DialogDescription>
+                  This action cannot be undone. This will permanently delete
+                  this email and remove all the messages.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="justify-end">
+            <DialogClose
+              render={
+                <Button type="button" variant={"outline"}>
+                  Close
+                </Button>
+              }
+            />
+            <Button>Yes gnerate new email</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
